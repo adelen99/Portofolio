@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { slideIn } from "../utils/motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
+import { toast } from "react-toastify";
 
 const Contact = (): React.ReactNode => {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -39,16 +40,34 @@ const Contact = (): React.ReactNode => {
       .then(
         () => {
           setLoading(false);
-          alert("Than you. I will get back to you as soon as possible");
+          toast.success(
+            "Thank you. I will get back to you as soon as possible",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            }
+          );
           setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.log(error);
-          alert("Something went wrong.");
+          toast.error("Something went wrong. Please try again.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
       );
-
     // Reset loading state after submission
     setLoading(false);
   };
