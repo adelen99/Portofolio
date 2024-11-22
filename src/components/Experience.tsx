@@ -69,11 +69,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
 const Experience = (): React.ReactNode => {
   return (
     <>
-      <motion.div variants={textVariant(1)}>
+      <div>
         <p className={styles.sectionSubText}>What I have done so far</p>
-        <h2 className={styles.sectionHeadText}>Background.</h2>
-      </motion.div>
-      <div className="mt-20 flex flex-col">
+        <h2 className={`${styles.sectionHeadText} text-white`}>Background.</h2>
+      </div>
+      <div className="mt-20 flex flex-col sm:mt-10">
         <VerticalTimeline>
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
