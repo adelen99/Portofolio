@@ -36,7 +36,7 @@ const ProjectCard = ({
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-contain rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
@@ -76,7 +76,6 @@ const ProjectCard = ({
   );
 };
 const Works = (): React.ReactNode => {
-  //1:48:30
   return (
     <>
       <motion.div variants={textVariant(1)}>
